@@ -26,7 +26,6 @@ public class Connect {
 
 
 
-
 	public static void closeMySQL() {
 		try {
 			if (rs != null)

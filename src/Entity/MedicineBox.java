@@ -42,6 +42,7 @@ public class MedicineBox {
 	    public void setExpired(boolean expired) {
 	        isExpired = expired;
 	    }
+	    
 	    public String toString() {
 	        return "[" + this.getId() + "]" + "(" + this.getProduction_date() + ")" + "(" + this.getExpiration_date() + ")";
 	    }

@@ -1,6 +1,5 @@
 package BLL;
 
-
 import DAL.MedicineBoxDAO;
 import DAL.PurchaseDAO;
 import DAL.MedicineDAO;

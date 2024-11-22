@@ -75,6 +75,7 @@ public class Medicine {
 		public void setAmount(int amount) {
 			this.amount = amount;
 		}
+		
 		public String toString() {
 	   		   return "["+this.getId()+"]"+this.getName()+"("+this.getGeneric_name()+")"+"("+this.getDosage()+")"+"("+this.getIndications()+")"+
 	   	"("+this.getCategory_name()+")"+"("+this.getUnit()+")"+"("+this.getAmount()+")";

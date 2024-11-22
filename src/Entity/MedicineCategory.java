@@ -33,6 +33,7 @@ public class MedicineCategory {
 		public void setDesription(String desription) {
 			this.desription = desription;
 		}
+		
 		public String toString() {
 			   return "["+this.getId()+"]"+this.getName()+"("+this.getDesription()+")";
 		}

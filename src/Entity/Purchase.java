@@ -67,6 +67,7 @@ public class Purchase {
 	   	public void setPharmacy_name(String pharmacy_name) {
 	   		this.pharmacy_name = pharmacy_name;
 	   	}
+	   	
 	   	public String toString() {
 	   		   return "["+this.getId()+"]"+this.getMedicine_id()+"("+this.getStock_in_date()+")"+"("+this.getExpiration_date()+")"+"("+this.getAmount()+")"+
 	   	"("+this.getAmount()+")"+"("+this.getPharmacy_name()+")";

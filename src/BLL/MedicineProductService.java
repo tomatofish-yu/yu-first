@@ -1,6 +1,5 @@
 package BLL;
 
-
 import DAL.MedicineProductDAO;
 import Entity.MedicineProduct;
 import java.util.List;

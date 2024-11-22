@@ -33,6 +33,7 @@ public class MedicineProduct {
 		public void setSpecification(String specification) {
 			this.specification = specification;
 		}
+		
 		public String toString() {
 			   return "["+this.getId()+"]"+this.getManufacturer()+"("+this.getSpecification()+")";
 		}

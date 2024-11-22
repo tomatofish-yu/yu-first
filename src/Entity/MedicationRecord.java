@@ -58,6 +58,7 @@ public class MedicationRecord {
 		public void setSymptoms(String symptoms) {
 			this.symptoms = symptoms;
 		}
+		
 		public String toString() {
 	   		   return "["+this.getId()+"]"+this.getMember_name()+"("+this.getMedicine_id()+")"+
 		"("+this.getmedication_time()+")"+"("+this.getDose()+")"+"("+this.getSymptoms()+")";

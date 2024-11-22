@@ -18,7 +18,6 @@ public class FamilyMember {
 	}
 
 
-
 	public String getName() {
 		return name;
 	}

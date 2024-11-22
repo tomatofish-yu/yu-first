@@ -28,7 +28,7 @@ public class MedicationRecordDAO {
             pstmt.setString(2, record.getMember_name());
             pstmt.setInt(3, record.getMedicine_id());
             pstmt.setDate(4, new java.sql.Date(record.getmedication_time().getTime()));
-            pstmt.setString(5, record.getDose());
+            pstmt.setInt(5, record.getDose());
             pstmt.setString(6, record.getSymptoms());
 
             int affectedRows = pstmt.executeUpdate();
@@ -47,7 +47,7 @@ public class MedicationRecordDAO {
             pstmt.setString(1, record.getMember_name());
             pstmt.setInt(2, record.getMedicine_id());
             pstmt.setDate(3, new java.sql.Date(record.getmedication_time().getTime()));
-            pstmt.setString(4, record.getDose());
+            pstmt.setInt(4, record.getDose());
             pstmt.setString(5, record.getSymptoms());
             pstmt.setInt(6, record.getId());
 
