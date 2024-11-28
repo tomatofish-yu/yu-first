@@ -2,7 +2,7 @@ package Entity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-//这是一个实体类
+
 public class Purchase {
 
 	   private int id;
