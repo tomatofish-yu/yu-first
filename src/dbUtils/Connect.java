@@ -1,44 +1,54 @@
 package dbUtils;
 
-import java.sql.*;
-import java.util.Vector;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 public class Connect {
-	private static String driver = "com.mysql.cj.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost:3306homepharmacydb?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true";
-	private static String user = "root";
-	private static String password = "030803";
-	private static Connection conn = null;
-	private static Statement stmt = null;
-	private static ResultSet rs = null;
+    private static String driver;
+    private static String url;
+    private static String user;
+    private static String password;
+    private static Connection conn;
 
-	
+    public static void loadProperties(String fileName) {
+        Properties prop = new Properties();
+        try (FileInputStream in = new FileInputStream(fileName)) {
+            prop.load(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to load properties", e);
+        }
+        driver = prop.getProperty("db.driver");
+        url = prop.getProperty("db.url");
+        user = prop.getProperty("db.user");
+        password = prop.getProperty("db.password");
+    }
 
-	public static Connection connectMySQL() {
-		try {
-			Class.forName(driver);
-			conn = DriverManager.getConnection(url, user, password);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return conn;
-	}
+    public static Connection connectMySQL() {
+        try {
+           Class.forName(driver);
+            conn = DriverManager.getConnection(url, user, password);
+            if (conn == null) {
+                throw new SQLException("Failed to establish database connection.");
+            }
+       } catch (ClassNotFoundException | SQLException e) {
+           e.printStackTrace();
+           throw new RuntimeException("Database connection failed", e);
+       }
+       return conn;
+   }
 
-
-
-	public static void closeMySQL() {
-		try {
-			if (rs != null)
-				rs.close();
-			rs = null;
-			if (stmt != null)
-				stmt.close();
-			stmt = null;
-			if (conn != null)
-				conn.close();
-			conn = null;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    public static void closeMySQL() {
+        try {
+           if (conn != null && !conn.isClosed()) {
+               conn.close();
+           }
+       } catch (SQLException e) {
+           e.printStackTrace();
+        }
+    }
 }

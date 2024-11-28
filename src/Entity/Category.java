@@ -1,12 +1,12 @@
 package Entity;
 
-public class MedicineCategory {
+public class Category {
 
 	   private int id;
 	   private String name; 
 	   private String desription;
 
-	   public MedicineCategory(int id,String name,String desription)
+	   public Category(int id,String name,String desription)
 		{   
 			   this.id = id;
 			   this.name = name;
